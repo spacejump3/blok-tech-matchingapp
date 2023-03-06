@@ -25,6 +25,19 @@ main {
     font-size: 1.5em;
 }
 
+footer {
+    font-family: 'rsPlain', 'Times New Roman';
+    color: white;
+    text-align: center;
+    background-color: #332a20;
+    padding: 1em;
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 h1 {
     color: var(--main-title-color);
     font-family: 'rsQuill', 'Times New Roman';
