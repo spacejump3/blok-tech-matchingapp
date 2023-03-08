@@ -4,14 +4,13 @@
     <%- include('../view/partials/head') %>
 </head>
 <body>
-    <header></header>
     <main>
         <h1>Check out the results!</h1>
         <ul>
             <li>
-                <h2>Wise old man</h2>
+                <h2><%= magicNpcList[0].name %></h2>
                 <img src="public/img/wise-old-man.png" alt="NPC Wise old man from RuneScape" class="card-img">
-                <p>The wise old man likes to rob banks.</p>
+                <p><%= magicNpcList[0].description%></p>
             </li>
             <li>
                 <h2>Wise old man</h2>
