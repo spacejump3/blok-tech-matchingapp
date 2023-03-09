@@ -2,13 +2,15 @@ const express = require("express");
 const app = express();
 const port = 8000;
 
+require("dotenv").config()
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://stephansp:<password>@matching-app-database.bskph4g.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/test";
+console.log(uri)
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
+  const collection = client.db("runescapeNpcs").collection("magic");
   // perform actions on the collection object
-  client.close();
 });
 
 app.use(express.static(__dirname + "/public"));
