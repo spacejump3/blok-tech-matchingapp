@@ -1,8 +1,9 @@
+require("dotenv").config()
+
+// server setup
 const express = require("express");
 const app = express();
 const port = 8000;
-
-require("dotenv").config()
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/test";
@@ -25,17 +26,17 @@ app.listen(port, () => {
   console.log("server started on port " + port);
 });
 
-// home pagina
+// home page
 app.get("/home", (req, res) => {
   res.render("home", { title: "Home"});
 });
 
-// magic pagina
+// magic page
 app.get("/magic", (req, res) => {
   res.render("magic", { title: "Magic"});
 });
 
-// data voor als je magic hebt gekozen
+// data if magic was chosen
 const magicNpcList = [
   {
     name: "Wise old Man",
@@ -49,18 +50,22 @@ const magicNpcList = [
     name: "Wizard Mizgog",
     description: "Still looking for imps",
   },
+  {
+    name: "Saradomin wizard",
+    description: "Stops your clue steps in the name of Saradomin"
+  },
+  {
+    name: "Zamorak wizard",
+    description: "He tries"
+  }
 ];
 
-// lijst van magic NPC's pagina
+// list of magic NPC's page
 app.get("/magiclist", (req, res) => {
   res.render("magiclist", { magicNpcList: magicNpcList });
 });
 
-// 404 pagina altijd onderaan
+// 404 page always on bottom
 app.get("/*", (req, res) => {
-  res.render("404");
-});
-
-app.get("/*/*", (req, res) => {
   res.render("404");
 });
