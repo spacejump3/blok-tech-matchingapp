@@ -31,9 +31,23 @@ app.get("/home", (req, res) => {
   res.render("home", { title: "Home"});
 });
 
+function getMagicData(activities) {
+  
+  //gebruik de client van mongo om hier een request te doen naar de database op basis van de activities
+  //const data = {};
+
+  app.get("/magiclist", (req, res) => {
+    res.render("magiclist", {});
+  });
+
+  console.log("asdasd")
+}
+
+
+
 // magic page
 app.get("/magic", (req, res) => {
-  res.render("magic", { title: "Magic"});
+  res.render("magic", { title: "Magic", getMagicData: getMagicData});
 });
 
 // data if magic was chosen
@@ -41,6 +55,7 @@ const magicNpcList = [
   {
     name: "Wise old Man",
     description: "He likes to rob banks",
+    category: ["combat"] 
   },
   {
     name: "Jad",
