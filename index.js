@@ -9,10 +9,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const collectionMagic = client.db("runescapeNpcs").collection("magic");
-  const collectionCombat = client.db("runescapeNpcs").collection("combat");
-  const collectionAdventuring = client.db("runescapeNpcs").collection("adventuring");
-  // perform actions on the collection object
+  if (err) throw err;
 });
 
 // apps
@@ -31,56 +28,55 @@ app.get("/home", (req, res) => {
   res.render("home", { title: "Home"});
 });
 
-function getMagicData(activities) {
-  
-  //gebruik de client van mongo om hier een request te doen naar de database op basis van de activities
-  //const data = {};
-
-  app.get("/magiclist", (req, res) => {
-    res.render("magiclist", {});
-  });
-
-  console.log("asdasd")
-}
-
-
-
 // magic page
 app.get("/magic", (req, res) => {
-  res.render("magic", { title: "Magic", getMagicData: getMagicData});
+  res.render("magic", { title: "Magic" });
 });
 
-// data if magic was chosen
-const magicNpcList = [
-  {
-    name: "Wise old Man",
-    description: "He likes to rob banks",
-    category: ["combat"] 
-  },
-  {
-    name: "Jad",
-    description: "Watch out for his fireballs",
-  },
-  {
-    name: "Wizard Mizgog",
-    description: "Still looking for imps",
-  },
-  {
-    name: "Saradomin wizard",
-    description: "Stops your clue steps in the name of Saradomin"
-  },
-  {
-    name: "Zamorak wizard",
-    description: "He tries"
-  }
-];
+// magic list function
+app.post("/magiclist", async (req, res) => {
+  const selection = [req.body.category].flat();
+  const collectionMagic = client.db("runescapeNpcs").collection("magic");
+  const result = await collectionMagic.find({ category: { $in: selection } }).toArray((err, result) => {
+    if (err) throw err;
+    return result; 
+  });
+  res.render("magiclist", {magicNpcList: result, title: "Magic results" });
+});
 
-// list of magic NPC's page
-app.get("/magiclist", (req, res) => {
-  res.render("magiclist", { magicNpcList: magicNpcList });
+// combat page
+app.get("/combat", (req, res) => {
+  res.render("combat", { title: "Combat" });
+});
+
+// combat list function
+app.post("/combatlist", async (req, res) => {
+  const selection = [req.body.category].flat();
+  const collectionCombat = client.db("runescapeNpcs").collection("combat");
+  const result = await collectionCombat.find({ category: { $in: selection } }).toArray((err, result) => {
+    if (err) throw err;
+    return result; 
+  });
+  res.render("combatlist", {combatNpcList: result, title: "Combat results" });
+});
+
+// adventuring page
+app.get("/adventuring", (req, res) => {
+  res.render("adventuring", { title: "Adventuring" });
+});
+
+// adventuring list function
+app.post("/adventuringlist", async (req, res) => {
+  const selection = [req.body.category].flat();
+  const collectionAdventuring = client.db("runescapeNpcs").collection("adventuring");
+  const result = await collectionAdventuring.find({ category: { $in: selection } }).toArray((err, result) => {
+    if (err) throw err;
+    return result; 
+  });
+  res.render("adventuringlist", {adventuringNpcList: result, title: "Adventuring results" });
 });
 
 // 404 page always on bottom
 app.get("/*", (req, res) => {
-  res.render("404");
+  res.render("404", { title: "404" });
 });

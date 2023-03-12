@@ -4,34 +4,36 @@
     <%- include('../view/partials/head') %>
 </head>
 <body>
-    <header></header>
+    <header><%- include('../view/partials/header') %></header>
     <main>
-        <fieldset>
-            <legend>What magic activities best fit you?</legend>
+        <h1>What magic activities best fit you?</h1>
+        <form action="/magiclist" method="POST">
+            <h2 class="form-heading">Choose at least one option</h2>
             <div>
-                <input type="checkbox" id="sara">
+                <input type="checkbox" name="category" value="sara" id="sara">
                 <label for="sara">Saradominist magic</label>
             </div>
             <div>
-                <input type="checkbox" id="zammy">
+                <input type="checkbox" name="category" value="zammy" id="zammy">
                 <label for="zammy">Zamorakian magic</label>
             </div>
             <div>
-                <input type="checkbox" id="guthix">
+                <input type="checkbox" name="category" value="guthix" id="guthix">
                 <label for="guthix">Guthixian magic</label>
             </div>
             <div>
-                <input type="checkbox" id="runecraft">
+                <input type="checkbox" name="category" value="runecraft" id="runecraft">
                 <label for="runecraft">Runecrafting</label>
             </div>
             <div>
-                <input type="checkbox" id="combat">
+                <input type="checkbox" name="category" value="combat" id="combat">
                 <label for="combat">Combat spells</label>
             </div>
-        </fieldset>
-        <button href="home" class="btn btn-previous">Previous</button>
-        <button href="magiclist" class="btn btn-next">Next</button>
-        <button onclick="<%= getMagicData() %>">Click me</button>
+            <div class="two-buttons">
+                <a href="home" class="btn btn-previous">Previous</a>
+                <button href="magiclist" class="btn btn-next" type="submit">See results</button>
+            </div>
+        </form>
     </main>
     <footer>
         <%- include('../view/partials/footer') %>

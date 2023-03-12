@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../view/partials/head') %>
+</head>
+<body>
+    <header><%- include('../view/partials/header') %></header>
+    <main>
+        <h1>What combat activities best fit you?</h1>
+        <form action="/combatlist" method="POST">
+            <h2 class="form-heading">Choose at least one option</h2>
+            <div>
+                <input type="checkbox" name="category" value="slayer" id="slayer">
+                <label for="slayer">Slayer</label>
+            </div>
+            <div>
+                <input type="checkbox" name="category" value="mageCb" id="mageCb">
+                <label for="mageCb">Magic combat</label>
+            </div>
+            <div>
+                <input type="checkbox" name="category" value="range" id="range">
+                <label for="range">Ranged combat</label>
+            </div>
+            <div>
+                <input type="checkbox" name="category" value="pvp" id="pvp">
+                <label for="pvp">Player vs player</label>
+            </div>
+            <div>
+                <input type="checkbox" name="category" value="big" id="big">
+                <label for="big">Big enemies</label>
+            </div>
+            <div class="two-buttons">
+                <a href="home" class="btn btn-previous">Previous</a>
+                <button href="magiclist" class="btn btn-next" type="submit">See results</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <%- include('../view/partials/footer') %>
+    </footer>
+</body>
+</html>

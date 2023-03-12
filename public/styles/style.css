@@ -11,6 +11,7 @@
 :root {
   --main-title-color: #ffee00;
   --main-text-color: #df851b;
+  --background-color: #332a20;
 }
 
 body {
@@ -30,13 +31,44 @@ footer {
   font-size: 1.2em;
   color: white;
   text-align: center;
-  background-color: #332a20;
+  background-color: var(--background-color);
   padding: 1em;
 
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+header nav {
+  background-color: var(--background-color);
+
+
+}
+
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+header nav ul li {
+  margin: 0;
+  color: white;
+
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
+header nav ul li a {
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+header nav ul li a:hover {
+  background-color: #0002;
 }
 
 h1 {
@@ -87,6 +119,16 @@ li {
   margin: 1em;
   outline: #df851b solid 0.1em;
   box-shadow: 0.1em 0.1em 0.5em #0005, inset 0 0 0.2em #000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.results-list {
+  width: 12em;
 }
 
 ul li a {
@@ -99,18 +141,28 @@ ul li a:hover {
 }
 
 /* interests list */
-legend {
-  color: var(--main-text-color);
-  font-family: "rsPlain", "Times New Roman";
-  font-weight: 800;
-  text-shadow: 0.1em 0.1em 0 #000;
-  font-size: 1.5em;
+button {
+  border: none;
 }
 
-fieldset {
+form {
   margin: auto;
+  padding: 1em 0 1em 0;
   text-align: left;
   max-width: 20em;
+  background-color: #0002;
+  padding: 1em;
+}
+
+.form-heading {
+  margin: 0 0 .3em 0;
+}
+
+.two-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1em;
 }
 
 label {
@@ -123,15 +175,26 @@ label:hover {
   cursor: pointer;
 }
 
-fieldset div:hover {
+form div:not(:last-of-type):hover {
   background-color: #0002;
 }
 
 .btn {
   font-size: 1.5em;
-  outline: black solid 0.07em;
+  outline: black solid 0.1em;
+  outline-offset: -0.1em;
   padding: 0.5em;
   color: white;
+  font-family: "rsPlain", "Times New Roman";
+  text-shadow: .05em .05em 0 #000;
+
+  transition: .2s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 .1em 0 #000;
+  transform: translateY(-.1em);
 }
 
 .btn-next {
@@ -139,19 +202,31 @@ fieldset div:hover {
 }
 
 .btn-previous {
-  background-color: red;
+  background-color: rgb(167, 0, 0);
 }
 
 .btn-next:hover {
-  background-color: rgb(0, 102, 0);
+  background-color: rgb(0, 182, 0);
 }
 
 .btn-previous:hover {
-  background-color: rgb(192, 0, 0);
+  background-color: rgb(255, 0, 0);
 }
 
 /* NPC list */
 
 .card-img {
-  width: 5em;
+  max-width: 5em;
+  transition: .2s;
+
+  -webkit-filter: drop-shadow(.2em .2em .1em #0002);
+  filter: drop-shadow(.2em .2em .1em #0002);
+}
+
+.card-img:hover {
+  scale: 110%;
+}
+
+.return-home-link {
+  padding-bottom: 5em;
 }
