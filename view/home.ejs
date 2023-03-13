@@ -5,16 +5,6 @@
 </head>
 <body>
     <header><%- include('../view/partials/header') %></header>
-    <script>
-        const playercount_api = "https://www.runescape.com/player_count.js?varname=iPlayerCount&callback=jQuery000000000000000_0000000000&_=0"
-        async function getPlayerCount() {
-            const response = await fetch(playercount_api);
-            const data = await response.json();
-            console.log(data);
-        };
-
-        getPlayerCount();
-    </script>
     <main>
         <h1>Which RuneScape character best fits you?</h1>
         <h2>What aspect of RuneScape are you most interested in?</h2>

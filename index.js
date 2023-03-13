@@ -5,12 +5,13 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const cors = require("cors");
+const fetch = require("node-fetch");
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/test";
+const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  if (err) throw err;
+  if (err) throw err
 });
 
 // apps
@@ -80,5 +81,12 @@ app.post("/adventuringlist", async (req, res) => {
 
 // 404 page always on bottom
 app.get("/*", (req, res) => {
-  res.render("404", { title: "404" });
+  fetch('https://secure.runescape.com/m=clan-hiscores/clanRanking.json')
+  .then(res => res.json())
+  .then(data => {
+    res.render("404", { title: "404", data: data });
+  })
+  .catch(err => {
+    res.render("404", { title: "404" });
+  })
 });
