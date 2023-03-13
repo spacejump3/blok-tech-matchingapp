@@ -4,6 +4,7 @@ require("dotenv").config()
 const express = require("express");
 const app = express();
 const port = 8000;
+const cors = require("cors");
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASS + "@matching-app-database.bskph4g.mongodb.net/test";
@@ -15,6 +16,7 @@ client.connect(err => {
 // apps
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.set("view engine", "ejs");
 app.set("views", "view");
