@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../view/partials/head'); %>
-</head>
-<body>
-    <header>
-        <%- include('../view/partials/header'); %>
-    </header>
-    <main>
-        <h1>uh oh, seems like this page does not exist :(</h1>
-        <a href="../home">Please return home</a>
-        <% if(data){ %>
-            <ul>
-                <% for(var i=0; i < data.length; i++) {%>
-                    <li><%= data[i].clan_name %></li>
-                 <% } %>
-            </ul>
-        <% } else{ %>  
-        <% } %>
-    </main>
-    <footer>
-        <%- include('../view/partials/footer'); %>
-    </footer>
-</body>
+	<head>
+		<%- include('../view/partials/head'); %>
+	</head>
+	<body>
+		<header><%- include('../view/partials/header'); %></header>
+		<main>
+			<h1>uh oh, seems like this page does not exist :(</h1>
+			<a href="../home">Please return home</a>
+			<% if(data){ %>
+			<ul>
+				<% for(var i=0; i < data.length; i++) {%>
+				<li><%= data[i].clan_name %></li>
+				<% } %>
+			</ul>
+			<% } else{ %> <% } %>
+		</main>
+		<footer><%- include('../view/partials/footer'); %></footer>
+	</body>
 </html>

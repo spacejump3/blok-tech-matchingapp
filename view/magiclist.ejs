@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../view/partials/head') %>
-</head>
-<body>
-    <header><%- include('../view/partials/header') %></header>
-    <main>
-        <h1>Check out the results!</h1>
-        <ul>
-            <% magicNpcList.forEach(function(item) { %>
-                <li class="results-list">
-                    <h2><%= item.name %></h2>
-                    <img src="<%= item.img %>" class="card-img">
-                    <p><%= item.description %></p>
-                </li>
-            <% }); %>
-        </ul>
-        <a href="home" class="return-home-link">return to home</a>
-    </main>
-    <footer>
-        <%- include('../view/partials/footer') %>
-    </footer>
-</body>
+	<head>
+		<%- include('../view/partials/head') %>
+	</head>
+	<body>
+		<header><%- include('../view/partials/header') %></header>
+		<main>
+			<h1>Check out the results!</h1>
+			<ul>
+				<% magicNpcList.forEach(function(item) { %>
+				<li class="results-list">
+					<h2><%= item.name %></h2>
+					<img src="<%= item.img %>" class="card-img" />
+					<p><%= item.description %></p>
+				</li>
+				<% }); %>
+			</ul>
+			<a href="home" class="return-home-link">return to home</a>
+		</main>
+		<footer><%- include('../view/partials/footer') %></footer>
+	</body>
 </html>

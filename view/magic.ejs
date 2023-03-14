@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../view/partials/head') %>
-</head>
-<body>
-    <header><%- include('../view/partials/header') %></header>
-    <main>
-        <h1>What magic activities best fit you?</h1>
-        <form action="magiclist" method="POST">
-            <h2 class="form-heading">Choose at least one option</h2>
-            <div>
-                <input type="checkbox" name="category" value="sara" id="sara">
-                <label for="sara">Saradominist magic</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="zammy" id="zammy">
-                <label for="zammy">Zamorakian magic</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="guthix" id="guthix">
-                <label for="guthix">Guthixian magic</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="runecraft" id="runecraft">
-                <label for="runecraft">Runecrafting</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="combat" id="combat">
-                <label for="combat">Combat spells</label>
-            </div>
-            <div class="two-buttons">
-                <a href="home" class="btn btn-previous">Previous</a>
-                <button href="magiclist" class="btn btn-next" type="submit">See results</button>
-            </div>
-        </form>
-    </main>
-    <footer>
-        <%- include('../view/partials/footer') %>
-    </footer>
-</body>
+	<head>
+		<%- include('../view/partials/head') %>
+	</head>
+	<body>
+		<header><%- include('../view/partials/header') %></header>
+		<main>
+			<h1>What magic activities best fit you?</h1>
+			<form action="magiclist" method="POST">
+				<h2 class="form-heading">Choose at least one option</h2>
+				<div>
+					<input type="checkbox" name="category" value="sara" id="sara" />
+					<label for="sara">Saradominist magic</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="zammy" id="zammy" />
+					<label for="zammy">Zamorakian magic</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="guthix" id="guthix" />
+					<label for="guthix">Guthixian magic</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="runecraft" id="runecraft" />
+					<label for="runecraft">Runecrafting</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="combat" id="combat" />
+					<label for="combat">Combat spells</label>
+				</div>
+				<div class="two-buttons">
+					<a href="home" class="btn btn-previous">Previous</a>
+					<button class="btn btn-next" id="submit-button" type="submit" disabled>See results</button>
+				</div>
+			</form>
+		</main>
+		<footer><%- include('../view/partials/footer') %></footer>
+
+        <script src="script/script.js"></script>
+	</body>
 </html>

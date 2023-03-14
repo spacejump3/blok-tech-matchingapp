@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../view/partials/head') %>
-</head>
-<body>
-    <header><%- include('../view/partials/header') %></header>
-    <main>
-        <h1>What adventuring activities best fit you?</h1>
-        <form action="adventuringlist" method="POST">
-            <h2 class="form-heading">Choose at least one option</h2>
-            <div>
-                <input type="checkbox" name="category" value="questing" id="questing">
-                <label for="questing">Questing</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="skilling" id="skilling">
-                <label for="skilling">Skilling</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="bank" id="bank">
-                <label for="bank">Bankstanding</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="farming" id="farming">
-                <label for="farming">Farming</label>
-            </div>
-            <div>
-                <input type="checkbox" name="category" value="minigames" id="minigames">
-                <label for="minigames">Minigames</label>
-            </div>
-            <div class="two-buttons">
-                <a href="home" class="btn btn-previous">Previous</a>
-                <button class="btn btn-next" type="submit">See results</button>
-            </div>
-        </form>
-    </main>
-    <footer>
-        <%- include('../view/partials/footer') %>
-    </footer>
-</body>
+	<head>
+		<%- include('../view/partials/head') %>
+	</head>
+	<body>
+		<header><%- include('../view/partials/header') %></header>
+		<main>
+			<h1>What adventuring activities best fit you?</h1>
+			<form action="adventuringlist" method="POST">
+				<h2 class="form-heading">Choose at least one option</h2>
+				<div>
+					<input type="checkbox" name="category" value="questing" id="questing" />
+					<label for="questing">Questing</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="skilling" id="skilling" />
+					<label for="skilling">Skilling</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="bank" id="bank" />
+					<label for="bank">Bankstanding</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="farming" id="farming" />
+					<label for="farming">Farming</label>
+				</div>
+				<div>
+					<input type="checkbox" name="category" value="minigames" id="minigames" />
+					<label for="minigames">Minigames</label>
+				</div>
+				<div class="two-buttons">
+					<a href="home" class="btn btn-previous">Previous</a>
+					<button class="btn btn-next" id="submit-button" type="submit" disabled>See results</button>
+				</div>
+			</form>
+		</main>
+		<footer><%- include('../view/partials/footer') %></footer>
+
+		<script src="script/script.js"></script>
+	</body>
 </html>
