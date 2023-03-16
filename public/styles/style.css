@@ -229,3 +229,37 @@ form div:not(:last-of-type):hover {
 .return-home-link {
 	padding-bottom: 5em;
 }
+
+/* 404 */
+.api-ul {
+	font-family: "rsPlain", "Times New Roman";
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 20em;
+	margin: auto;
+}
+
+.api-ul li {
+	outline: none;
+	box-shadow: none;
+	padding: 1em;
+	flex: 33%;
+	margin: 0;
+}
+
+.api-ul li:nth-child(1) {
+	color: rgb(0, 255, 21);
+}
+
+.api-ul li:nth-child(3) {
+	color: rgb(207, 207, 207);
+}
+
+.api-ul li:nth-child(5) {
+	color: rgb(163, 131, 102);
+}
+
+.small-heading {
+	font-size: 1.2em;
+}

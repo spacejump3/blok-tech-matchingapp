@@ -7,14 +7,16 @@
 		<header><%- include('../view/partials/header'); %></header>
 		<main>
 			<h1>uh oh, seems like this page does not exist :(</h1>
-			<a href="../home">Please return home</a>
+			<h2 class="small-heading">In the meantime, these are the top 3 clans in RuneSape:</h2>
 			<% if(data){ %>
-			<ul>
-				<% for(var i=0; i < data.length; i++) {%>
-				<li><%= data[i].clan_name %></li>
-				<% } %>
-			</ul>
-			<% } else{ %> <% } %>
+				<ul class="api-ul">
+					<% for(var i=0; i < data.length; i++) {%>
+					<li><%= data[i].rank %></li>
+					<li><%= data[i].clan_name %></li>
+					<% } %>
+				</ul>
+				<% } else{ %> <% } %>
+			<a href="../home">Please return home</a>
 		</main>
 		<footer><%- include('../view/partials/footer'); %></footer>
 	</body>
