@@ -29,7 +29,7 @@ main {
 footer {
 	font-family: "rsPlain", "Times New Roman";
 	font-size: 1.2em;
-	color: white;
+	color: #ffffff;
 	text-align: center;
 	background-color: var(--background-color);
 	padding: 1em;
@@ -46,12 +46,12 @@ header nav {
 
 header nav ul {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 
 header nav ul li {
 	margin: 0;
-	color: white;
+	color: #ffffff;
 
 	outline: none;
 	box-shadow: none;
@@ -65,6 +65,10 @@ header nav ul li a {
 
 header nav ul li a:hover {
 	background-color: #0002;
+}
+
+header nav ul li:last-child {
+	margin-left: auto;
 }
 
 h1 {
@@ -90,12 +94,12 @@ a {
 }
 
 a:hover {
-	color: white;
+	color: #ffffff;
 }
 
 p {
 	font-family: "rsPlain", "Times New Roman";
-	color: rgb(189, 189, 189);
+	color: #bdbdbd;
 	margin: 1em;
 }
 
@@ -110,17 +114,18 @@ ul {
 }
 
 li {
-	list-style: none;
-	background-color: #0003;
-	margin: 1em;
-	outline: #df851b solid 0.1em;
-	box-shadow: 0.1em 0.1em 0.5em #0005, inset 0 0 0.2em #000;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
 	align-items: center;
+	
+	margin: 1em;
+	box-shadow: 0.1em 0.1em 0.5em #0005, inset 0 0 0.2em #000;
+	outline: #df851b solid 0.1em;
+	
+	list-style: none;
+
+	background-color: #0003;
 }
 
 .results-list {
@@ -133,7 +138,7 @@ ul li a {
 }
 
 ul li a:hover {
-	color: white;
+	color: #ffffff;
 }
 
 /* interests list */
@@ -163,10 +168,12 @@ form {
 label {
 	font-family: "rsPlain", "Times New Roman";
 	color: var(--main-text-color);
+	width: 100%;
+	padding: .3em;
 }
 
 label:hover {
-	color: white;
+	color: #ffffff;
 	cursor: pointer;
 }
 
@@ -174,12 +181,16 @@ form div:not(:last-of-type):hover {
 	background-color: #0002;
 }
 
+form div:not(:last-of-type) {
+	display: flex;
+}
+
 .btn {
 	font-size: 1.5em;
-	outline: black solid 0.1em;
+	outline: #000000 solid 0.1em;
 	outline-offset: -0.1em;
 	padding: 0.5em;
-	color: white;
+	color: #ffffff;
 	font-family: "rsPlain", "Times New Roman";
 	text-shadow: 0.05em 0.05em 0 #000;
 
@@ -193,23 +204,23 @@ form div:not(:last-of-type):hover {
 }
 
 .btn-next {
-	background-color: green;
+	background-color: #008000;
 }
 
 .btn-next:disabled {
-	background-color: rgb(117, 117, 117);
+	background-color: #757575;
 }
 
 .btn-next:enabled:hover {
-	background-color: rgb(0, 182, 0);
+	background-color: #00b600;
 }
 
 .btn-previous {
-	background-color: rgb(167, 0, 0);
+	background-color: #a70000;
 }
 
 .btn-previous:hover {
-	background-color: rgb(255, 0, 0);
+	background-color: #ff0000;
 }
 
 /* NPC list */
@@ -233,7 +244,7 @@ form div:not(:last-of-type):hover {
 /* 404 */
 .api-ul {
 	font-family: "rsPlain", "Times New Roman";
-	color: white;
+	color: #ffffff;
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 20em;
@@ -249,17 +260,23 @@ form div:not(:last-of-type):hover {
 }
 
 .api-ul li:nth-child(1) {
-	color: rgb(0, 255, 21);
+	color: #00ff15;
 }
 
 .api-ul li:nth-child(3) {
-	color: rgb(207, 207, 207);
+	color: #cfcfcf;
 }
 
 .api-ul li:nth-child(5) {
-	color: rgb(163, 131, 102);
+	color: #a38366;
 }
 
 .small-heading {
 	font-size: 1.2em;
+}
+
+/* add npc page */
+
+.add-npc-form {
+	max-width: 30em;
 }
