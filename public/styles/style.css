@@ -274,9 +274,3 @@ form div:not(:last-of-type) {
 .small-heading {
 	font-size: 1.2em;
 }
-
-/* add npc page */
-
-.add-npc-form {
-	max-width: 30em;
-}
